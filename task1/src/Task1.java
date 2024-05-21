@@ -28,7 +28,7 @@ public class Task1 {
 
         do {
             result.append(index + 1); // получаем и "конкатенируем" первое число интервала с результатом
-            index = (index + step - 1) % arrLength; // получаем индекс первого числа следующего интервала
+            index = (index + step - 1) % arrLength; // получаем индекс последнего числа текущего/первого числа следующего интервала
         } while (index != 0); // пока индекс не укажет на первое число массива
 
         return Integer.parseInt(result.toString());
