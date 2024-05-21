@@ -23,11 +23,11 @@ public class Task2 {
             double pointX = getDouble(coordinates, 0);
             double pointY = getDouble(coordinates, 1);
 
-            double checkPosition = Math.pow(pointX - centerX, 2) + Math.pow(pointY - centerY, 2) - radius * radius;
+            double positionFlag = Math.pow(pointX - centerX, 2) + Math.pow(pointY - centerY, 2) - radius * radius;
 
-            if (checkPosition > 0) {
+            if (positionFlag > 0) {
                 System.out.println(2);
-            } else if(checkPosition < 0) {
+            } else if(positionFlag < 0) {
                 System.out.println(1);
             } else {
                 System.out.println(0);
