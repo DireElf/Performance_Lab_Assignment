@@ -8,7 +8,7 @@ import java.util.List;
 public class Task2 {
     public static void main(String[] args) {
         /*
-        Тестовые файлы:
+        Example test files:
         resources/circle.txt resources/points.txt
          */
 
@@ -36,9 +36,9 @@ public class Task2 {
     }
 
     /**
-     * Метод считывает строки из файла по указанному пути
-     * @param path - путь к файлу
-     * @return список строк
+     * Reads lines from a file at the specified path.
+     * @param path - the file path
+     * @return a list of strings from the file
      */
     private static List<String> getStringsFromFile(String path) {
         Path filePath = Paths.get(path);
@@ -52,11 +52,11 @@ public class Task2 {
     }
 
     /**
-     * Метод преобразует строку в массив (с пробелом в качестве разделителя) и возвращает
-     * числовое значение элемента массива по указанному индексу
-     * @param s - входящая строка
-     * @param index - индекс элемента после преобразования строки в массив
-     * @return дробное число
+     * Converts a string to an array (using space as a delimiter) and returns
+     * the numeric value of the array element at the specified index.
+     * @param s - the input string
+     * @param index - the index of the element after converting the string to an array
+     * @return a double value
      */
     private static double getDouble(String s, int index) {
         return Double.parseDouble(s.split(" ")[index]);
