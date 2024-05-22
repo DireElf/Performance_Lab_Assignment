@@ -6,19 +6,20 @@ import java.util.List;
 public class Task4 {
     public static void main(String[] args) {
         /*
-        Тестовые файлы:
-        resources/file1.txt (ожидаемый результат 2)
-        resources/file2.txt (ожидаемый результат 16)
+         * Example test files:
+         * resources/file1.txt (expected result 2)
+         * resources/file2.txt (expected result 16)
          */
         List<Integer> list = getNumbersFromFile(args[0]);
+        assert list != null && !list.isEmpty();
         int middle = getMiddle(list);
         System.out.println(getStepsNumber(list, middle));
     }
 
     /**
-     * Метод считывает числа из файла в список
-     * @param path - путь к файлу
-     * @return список чисел
+     * Reads numbers from a file and returns them as a list.
+     * @param path - the file path
+     * @return a list of numbers from the file
      */
     private static List<Integer> getNumbersFromFile(String path) {
         List<Integer> list = null;
@@ -33,13 +34,12 @@ public class Task4 {
     }
 
     /**
-     * Метод рассчитывает количество шагов инкремента/декремента чисел из списка до целевого числа
-     * @param list - список чисел
-     * @param middle - целевое число
-     * @return количество шагов
+     * Calculates the number of steps to increment/decrement numbers from the list to the target number.
+     * @param list - the list of numbers
+     * @param middle - the target number
+     * @return the number of steps to make all numbers in the list equal to the target number
      */
     private static int getStepsNumber(List<Integer> list, int middle) {
-        if (list.size() == 0) return 0;
         int result = 0;
         for (int i : list) {
             result += Math.abs(i - middle);
@@ -48,12 +48,14 @@ public class Task4 {
     }
 
     /**
-     * Метод выбирает число, к которому будут приводиться остальные числа
-     * @param list - список чисел
-     * @return целевое число
+     * Selects the median value from the list of numbers.
+     * The median value is the number to which all other numbers will be adjusted.
+     * @param list - the list of numbers
+     * @return the median value from the list
      */
     private static int getMiddle(List<Integer> list) {
         List<Integer> sortedList = list.stream().sorted().toList();
         return sortedList.get(sortedList.size() / 2);
     }
 }
+
