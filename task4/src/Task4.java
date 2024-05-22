@@ -11,7 +11,7 @@ public class Task4 {
          * resources/file2.txt (expected result 16)
          */
         List<Integer> list = getNumbersFromFile(args[0]);
-        assert list != null && !list.isEmpty();
+//        assert list != null && !list.isEmpty();
         int middle = getMiddle(list);
         System.out.println(getStepsNumber(list, middle));
     }
