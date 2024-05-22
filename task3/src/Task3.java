@@ -10,26 +10,25 @@ public class Task3 {
     public static void main(String[] args) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL); // игнорируются поля со значением null
+            mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL); // Ignore fields with null values
             Tests tests = mapper
-                    .readValue(Paths.get(args[0]).toFile(), Tests.class); // тестовый файл resources/tests.json
+                    .readValue(Paths.get(args[0]).toFile(), Tests.class); // Test file resources/tests.json
             Values values = mapper
-                    .readValue(Paths.get(args[1]).toFile(), Values.class); // тестовый файл resources/values.json
+                    .readValue(Paths.get(args[1]).toFile(), Values.class); // Test file resources/values.json
 
             fillTestsWithResults(tests.getTests(), values.getValues());
 
             mapper.writerWithDefaultPrettyPrinter()
-                    .writeValue(Paths.get(args[2]).toFile(), tests); // тестовый файл resources/report.json
+                    .writeValue(Paths.get(args[2]).toFile(), tests); // Output file resources/report.json
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
-     * Метод заполняет поля value каждого теста при наличии значения
-     * @param tests - набор тестов
-     * @param values - набор значений
+     * Fills the value fields of each test if a corresponding value is found.
+     * @param tests - list of tests
+     * @param values - list of values
      */
     private static void fillTestsWithResults(List<Test> tests, List<Value> values) {
         for (Test test : tests) {
@@ -42,10 +41,10 @@ public class Task3 {
     }
 
     /**
-     * Метод предназначен для поиска результата теста в наборе значений по идентификатору теста
-     * @param list - список результатов тестов
-     * @param id - идентификатор теста
-     * @return Optional со значением результата
+     * Finds the test result in the list of values by the test's ID.
+     * @param list - list of test results
+     * @param id - test ID
+     * @return Optional containing the result value if found
      */
     private static Optional<String> findTestResultById(List<Value> list, int id) {
         for (Value value : list) {
@@ -58,7 +57,7 @@ public class Task3 {
 
     /*
     POJO classes
-     */
+    */
     private static class Test {
         private int id;
         private String title;
