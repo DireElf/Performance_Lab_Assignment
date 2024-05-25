@@ -12,14 +12,14 @@ public class Task3 {
             ObjectMapper mapper = new ObjectMapper();
             mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL); // Ignore fields with null values
             Tests tests = mapper
-                    .readValue(Paths.get(args[0]).toFile(), Tests.class); // Test file resources/tests.json
+                    .readValue(Paths.get(args[0]).toFile(), Tests.class); // Test file: resources/tests.json
             Values values = mapper
-                    .readValue(Paths.get(args[1]).toFile(), Values.class); // Test file resources/values.json
+                    .readValue(Paths.get(args[1]).toFile(), Values.class); // Test file: resources/values.json
 
             fillTestsWithResults(tests.getTests(), values.getValues());
 
             mapper.writerWithDefaultPrettyPrinter()
-                    .writeValue(Paths.get(args[2]).toFile(), tests); // Output file resources/report.json
+                    .writeValue(Paths.get(args[2]).toFile(), tests); // Test file: resources/report.json
         } catch (IOException e) {
             e.printStackTrace();
         }
