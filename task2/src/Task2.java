@@ -13,15 +13,16 @@ public class Task2 {
          */
 
         List<String> circleData = getStringsFromFile(args[0]);
-        double centerX = getDouble(circleData.get(0), 0);
-        double centerY = getDouble(circleData.get(0), 1);
+
+        double centerX = getDoubleValue(circleData.get(0), 0);
+        double centerY = getDoubleValue(circleData.get(0), 1);
         double radius = Double.parseDouble(circleData.get(1));
 
         List<String> pointsData = getStringsFromFile(args[1]);
 
         for(String coordinates : pointsData) {
-            double pointX = getDouble(coordinates, 0);
-            double pointY = getDouble(coordinates, 1);
+            double pointX = getDoubleValue(coordinates, 0);
+            double pointY = getDoubleValue(coordinates, 1);
 
             double positionFlag = Math.pow(pointX - centerX, 2) + Math.pow(pointY - centerY, 2) - radius * radius;
 
@@ -58,7 +59,7 @@ public class Task2 {
      * @param index - the index of the element after converting the string to an array
      * @return a double value
      */
-    private static double getDouble(String s, int index) {
+    private static double getDoubleValue(String s, int index) {
         return Double.parseDouble(s.split(" ")[index]);
     }
 }
