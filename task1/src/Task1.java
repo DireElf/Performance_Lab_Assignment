@@ -1,10 +1,5 @@
 public class Task1 {
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("You need to enter two integers separated by a space");
-            return;
-        }
-
         // Uncomment to test the getPath method
         // assert(getPath(4, 3) == 13);
         // assert(getPath(5, 4) == 14253);
